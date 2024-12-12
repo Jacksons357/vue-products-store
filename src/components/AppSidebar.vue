@@ -1,0 +1,62 @@
+<template>
+  <VNavigationDrawer
+    expand-on-hover
+    rail
+  >
+    <VList>
+      <VListItem
+        prepend-avatar="https://randomuser.me/api/portraits/women/85.jpg"
+        subtitle="Administrador"
+        title="Your Store Example"
+      />
+    </VList>
+
+    <VDivider />
+
+    <VList
+      v-for="item in items"
+      :key="item.title"
+      density="compact"
+      nav
+    >
+      <VListItem
+        :prepend-icon="item.icon"
+        :title="item.title"
+        :value="item.value"
+        :href="item.href"
+      />
+    </VList>
+
+    <template #append>
+      <VList
+        density="compact"
+        nav
+      >
+        <VListItem
+          prepend-icon="mdi-logout"
+          title="Logout"
+          value="logout"
+        />
+      </VList>
+    </template>
+  </VNavigationDrawer>
+</template>
+
+<script lang="ts" setup>
+
+const items = [
+  {
+    icon: 'mdi-view-dashboard',
+    title: 'Dashboard',
+    value: 'dashboard',
+    href: '/'
+  },
+  {
+    icon: 'mdi-plus-box',
+    title: 'Register Product',
+    value: 'registerproduct',
+    href: '/register'
+  }
+]
+//
+</script>
